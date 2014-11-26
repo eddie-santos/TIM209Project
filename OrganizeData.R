@@ -1,8 +1,8 @@
 train1=read.csv("~/Desktop/train1.csv")
 train1=as.data.frame(train1)
-date=as.data.frame(strptime(train1[,3],format='%y%m%d%H'))
-colnames(date)="date"
-train2=data.frame(train1,date)
+dates=as.data.frame(strptime(train1[,3],format='%y%m%d%H'))
+colnames(dates)="dates"
+train2=data.frame(train1,dates)
 train2$click=as.factor(train2$click)
 train2$C1=as.factor(train2$C1)
 train2$banner_pos=as.factor(train2$banner_pos)
@@ -16,5 +16,6 @@ train2$C21=as.factor(train2$C21)
 train2$C22=as.factor(train2$C22)
 train2$C23=as.factor(train2$C23)
 train2$C24=as.factor(train2$C24)
-train3 = train2[,-3]
-train4=train3[,c(2,27,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26)]
+train2=train2[,-3]
+train4=train2[,c(2,27,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26)]
+summary(train4)

@@ -1,0 +1,8 @@
+library(gbm)
+set.seed(1)
+boost.tree.ada=gbm(click~.-dates-device_id-device_ip-device_model,data=train4,distribution="adaboost",n.trees=5000,interaction.depth=4)
+boost.tree.ber=gbm(click~.-dates-device_id-device_ip-device_model,data=train4,distribution="bernoulli",n.trees=5000,interaction.depth=4)
+summary(boost.tree.ada)
+par(mfrow=c(1,2))
+plot(boost.tree.ada,i="C17")
+plot(boost.tree.ada,i="site_id")
